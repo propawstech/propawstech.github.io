@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <title>ProPawsTech</title>
+    <style>
+        :root {
+            --bg: #fafaf7;
+            --fg: #1a1a1a;
+            --muted: #555;
+            --accent: #c8632c;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg:#15140f; --fg:#ececea; --muted:#a4a4a0; --accent:#ffa86b; }
+        }
+        body {
+            background: var(--bg); color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0; min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 24px; line-height: 1.6;
+        }
+        main { max-width: 480px; text-align: center; }
+        h1 { font-size: 2rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+        p  { color: var(--muted); margin: 0 0 32px; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin: 12px 0; }
+        a {
+            color: var(--accent); text-decoration: none; font-weight: 500;
+        }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>ProPawsTech</h1>
+    <p>Breed-specific wellness apps for dog owners.</p>
+    <ul>
+        <li><a href="/snootscoot/">SnootScoot — for beagles</a></li>
+        <li><a href="/goldenglide/">GoldenGlide — for golden retrievers</a></li>
+    </ul>
+</main>
+</body>
+</html>
