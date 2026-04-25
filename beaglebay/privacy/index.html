@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow">
-    <title>SnootScoot · Privacy Policy</title>
+    <title>BeagleBay · Privacy Policy</title>
     <style>
 /* Shared styles for propawstech.com pages.
    Inlined into each generated HTML file by site/build.py — kept as a
@@ -156,16 +156,16 @@ footer a { color: var(--muted); }
 <body>
 <main>
     <header>
-        <a class="brand" href="/snootscoot/">SnootScoot</a>
+        <a class="brand" href="/beaglebay/">BeagleBay</a>
         <nav>
-            <a href="/snootscoot/privacy">Privacy</a>
-            <a href="/snootscoot/terms">Terms</a>
-            <a href="/snootscoot/support">Support</a>
+            <a href="/beaglebay/privacy">Privacy</a>
+            <a href="/beaglebay/terms">Terms</a>
+            <a href="/beaglebay/support">Support</a>
         </nav>
     </header>
-    <h1>SnootScoot Privacy Policy</h1>
-<p><em>Last updated: April 23, 2026 · Effective: April 23, 2026</em></p>
-<p>ProPawsTech ("we", "us", "our") operates the SnootScoot iOS application
+    <h1>BeagleBay Privacy Policy</h1>
+<p><em>Last updated: April 24, 2026 · Effective: April 24, 2026</em></p>
+<p>ProPawsTech ("we", "us", "our") operates the BeagleBay iOS application
 ("the App"). This Privacy Policy explains what information we collect, why,
 how we use it, who we share it with, and the rights you have over it.</p>
 <p>It is written to satisfy the California Consumer Privacy Act as amended by
@@ -190,62 +190,77 @@ under Article 27 GDPR, that representative will be listed here before the
 App is made available in the EU/EEA.</p>
 <hr />
 <h2>2. Data we collect and why</h2>
+<p>The App operates with a <strong>device-local data model</strong>. Almost everything you
+do in the App — your dog's profile, walks, GPS routes, wellness logs,
+photos, vocalisation counts — is stored only on your device in an
+encrypted on-device database. None of it is uploaded to our servers.</p>
+<p>The only data that leaves your device for our backend is what's needed to
+authenticate your account.</p>
 <table>
 <thead>
 <tr>
 <th>Category</th>
 <th>Source</th>
 <th>Examples</th>
+<th>Where it lives</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Account identifier</td>
-<td>Sign in with Apple</td>
-<td>Apple user ID, email (if you share it)</td>
-<td>Authenticate you, sync your data</td>
+<td>Sign in with Apple or email</td>
+<td>Apple user ID, email address</td>
+<td>Our auth backend (Supabase)</td>
+<td>Authenticate you, allow account deletion</td>
 </tr>
 <tr>
 <td>Dog profile</td>
 <td>You (manual entry)</td>
 <td>Name, breed, birth date, weight, photo</td>
+<td><strong>On your device only</strong></td>
 <td>Display in the App</td>
 </tr>
 <tr>
 <td>Walk activity</td>
 <td>App during use</td>
 <td>GPS route, distance, duration, elevation</td>
-<td>Show walk history, write to Health</td>
+<td><strong>On your device only</strong></td>
+<td>Show walk history, write to Apple Health</td>
 </tr>
 <tr>
 <td>Wellness logs</td>
 <td>You (manual entry)</td>
 <td>Weight history, meals, care notes</td>
+<td><strong>On your device only</strong></td>
 <td>Show in wellness tabs</td>
 </tr>
 <tr>
 <td>HealthKit (optional)</td>
 <td>Apple Health</td>
 <td>Your steps, active calories, walking dist.</td>
+<td><strong>On your device only</strong></td>
 <td>Show fitness summary on Home</td>
 </tr>
 <tr>
 <td>Audio (transient)</td>
 <td>Microphone</td>
 <td>Audio buffers analysed <strong>on-device only</strong>;</td>
+<td><strong>On your device only</strong> —</td>
 <td>Detect dog vocalisations</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td>never recorded, stored or transmitted</td>
+<td>discarded immediately</td>
 <td></td>
 </tr>
 <tr>
 <td>Vocalisation counts</td>
 <td>App during walks</td>
 <td>Per-event timestamp + confidence score</td>
+<td><strong>On your device only</strong></td>
 <td>Show vocalisation insights</td>
 </tr>
 </tbody>
@@ -253,6 +268,10 @@ App is made available in the EU/EEA.</p>
 <p>We do <strong>not</strong> collect contact lists, advertising identifiers (IDFA), browser
 history, biometric facial data, precise device fingerprints, or any data
 about people other than the account holder.</p>
+<p><strong>Implication of the device-local model.</strong> Because your dogs, walks, and
+wellness data are not uploaded, we cannot recover them if you delete the
+App, lose your device, or sign in on a new device. Cross-device sync is
+not offered in this version.</p>
 <h3>2a. Lawful bases for processing (GDPR Article 6)</h3>
 <table>
 <thead>
@@ -267,7 +286,7 @@ about people other than the account holder.</p>
 <td>Article 6(1)(b) — performance of contract</td>
 </tr>
 <tr>
-<td>Storing your dog profile, walks, wellness</td>
+<td>On-device storage of dog profile, walks, wellness logs (never leaves your device)</td>
 <td>Article 6(1)(b) — performance of contract</td>
 </tr>
 <tr>
@@ -305,7 +324,7 @@ terms:</p>
 <li><strong>Not used for advertising or data mining.</strong> Per Apple's policy, HealthKit
   data is never used for marketing, shared with data brokers, or sold.</li>
 <li><strong>Fully revocable.</strong> You can revoke individual HealthKit permissions at any
-  time in Settings → Privacy &amp; Security → Health → SnootScoot. Screens that
+  time in Settings → Privacy &amp; Security → Health → BeagleBay. Screens that
   rely on those metrics will simply show 0.</li>
 </ul>
 <hr />
@@ -329,32 +348,39 @@ information. We do not engage in cross-context behavioural advertising.</p>
 </tr>
 <tr>
 <td>Supabase Inc.</td>
-<td>Encrypted user data storage</td>
+<td>Authentication only (account email, hashed password, user ID)</td>
 <td><em>[region — to be confirmed before EU launch]</em></td>
 </tr>
 </tbody>
 </table>
+<p>Supabase does <strong>not</strong> store any of your dogs, walks, wellness logs,
+photos, or HealthKit data — those never leave your device.</p>
 <h3>3a. International data transfers</h3>
-<p>Supabase is a US-based service. If you are located in the EU/EEA, the UK,
-Switzerland, or another jurisdiction with cross-border transfer restrictions,
-your data may be transferred to and stored in the United States. These
-transfers are governed by the European Commission's Standard Contractual
-Clauses (SCCs) included in Supabase's Data Processing Addendum, supplemented
-by the additional safeguards set out in our DPA with Supabase.</p>
+<p>Supabase is a US-based service. The only personal data transferred to it is
+the account credentials described above. If you are located in the EU/EEA,
+the UK, Switzerland, or another jurisdiction with cross-border transfer
+restrictions, that authentication data may be transferred to and stored in
+the United States. These transfers are governed by the European Commission's
+Standard Contractual Clauses (SCCs) included in Supabase's Data Processing
+Addendum.</p>
 <p>You may request a copy of the relevant transfer mechanism by emailing
 <code>propawstech@proton.me</code>.</p>
 <hr />
 <h2>4. Data retention</h2>
 <ul>
-<li><strong>Account data on our servers</strong> is retained until you delete your account.
-  Deleting your account via Settings → Privacy → Delete my account triggers
-  a permanent deletion of your <code>auth.users</code> row and all linked rows
-  (cascade) within seconds. There is no soft-delete or grace period.</li>
-<li><strong>On-device data</strong> (SwiftData store, photos in app sandbox, Keychain
-  tokens) is retained until you delete the App or your account. Account
-  deletion wipes the local store before signing you out.</li>
-<li><strong>Backup retention by Supabase</strong> may persist deleted data for up to
-  <strong>7 days</strong> in encrypted database backups, after which it is overwritten.</li>
+<li><strong>Account credentials on our servers</strong> (the only data we store
+  server-side) are retained until you delete your account. Deleting your
+  account via Settings → Privacy → Delete my account triggers a permanent
+  deletion of your <code>auth.users</code> row within seconds. There is no
+  soft-delete or grace period.</li>
+<li><strong>On-device data</strong> (SwiftData store with your dogs, walks, wellness logs;
+  photos in the app sandbox; Keychain tokens) is retained until you delete
+  the App or your account. Account deletion wipes the local store before
+  signing you out.</li>
+<li><strong>Backup retention by Supabase</strong> may persist deleted account credentials
+  for up to <strong>7 days</strong> in encrypted database backups, after which they are
+  overwritten. No app content is in those backups because no app content is
+  stored server-side.</li>
 <li><strong>Diagnostic logs</strong> are not retained server-side. The Edge Function that
   performs deletion logs only an opaque user ID for audit purposes and is
   rotated automatically.</li>
@@ -370,6 +396,10 @@ by the additional safeguards set out in our DPA with Supabase.</p>
   and discarded immediately after each analysis window.</li>
 <li>The first launch after a fresh install wipes any Keychain residue from
   previous installs.</li>
+<li><strong>Optional Face ID / Touch ID lock.</strong> Settings → Security → "Require Face
+  ID to open" gates the app behind a biometric prompt each time it is
+  reopened. The biometric check is performed by iOS — we never see, store,
+  or transmit your face or fingerprint data.</li>
 </ul>
 <p>No security control is perfect. If you discover a vulnerability, please
 report it to <code>propawstech@proton.me</code>.</p>
@@ -384,7 +414,7 @@ report it to <code>propawstech@proton.me</code>.</p>
   Delete my account.</li>
 <li><strong>Restrict</strong> processing.</li>
 <li><strong>Port</strong> your data to another service — Settings → Privacy → Export my
-  data produces a machine-readable JSON file.</li>
+  data produces a machine-readable JSON file from your on-device store.</li>
 <li><strong>Object</strong> to processing based on legitimate interests.</li>
 <li><strong>Withdraw consent</strong> at any time (via iOS Settings) without affecting the
   lawfulness of prior processing.</li>
@@ -442,7 +472,7 @@ the most recent revision.</p>
 <p>For data-protection requests, please put <strong>"Privacy request"</strong> in the
 subject line.</p>
     <footer>
-        © ProPawsTech. SnootScoot is built independently and not
+        © ProPawsTech. BeagleBay is built independently and not
         affiliated with Apple Inc., the American Kennel Club, or any
         breed registry.
     </footer>

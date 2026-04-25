@@ -13,12 +13,12 @@ Usage:
   python3 site/build.py
 
 Outputs:
-  site/snootscoot/privacy/index.html
-  site/snootscoot/terms/index.html
-  site/snootscoot/support/index.html
+  site/beaglebay/privacy/index.html
+  site/beaglebay/terms/index.html
+  site/beaglebay/support/index.html
 
 The file `site/CNAME` and the existing landing pages
-(`site/index.html`, `site/snootscoot/index.html`) are NOT regenerated —
+(`site/index.html`, `site/beaglebay/index.html`) are NOT regenerated —
 those are static and edited by hand.
 """
 
@@ -46,9 +46,9 @@ CSS = (SITE / "_shared.css").read_text(encoding="utf-8")
 
 # (source markdown, output dir under site/, page <title>)
 PAGES = [
-    ("PRIVACY_POLICY.md",   "snootscoot/privacy", "SnootScoot · Privacy Policy"),
-    ("TERMS_OF_SERVICE.md", "snootscoot/terms",   "SnootScoot · Terms of Service"),
-    ("SUPPORT.md",          "snootscoot/support", "SnootScoot · Support"),
+    ("PRIVACY_POLICY.md",   "beaglebay/privacy", "BeagleBay · Privacy Policy"),
+    ("TERMS_OF_SERVICE.md", "beaglebay/terms",   "BeagleBay · Terms of Service"),
+    ("SUPPORT.md",          "beaglebay/support", "BeagleBay · Support"),
 ]
 
 # Markdown extras worth enabling:
@@ -71,16 +71,16 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
 <main>
     <header>
-        <a class="brand" href="/snootscoot/">SnootScoot</a>
+        <a class="brand" href="/beaglebay/">BeagleBay</a>
         <nav>
-            <a href="/snootscoot/privacy">Privacy</a>
-            <a href="/snootscoot/terms">Terms</a>
-            <a href="/snootscoot/support">Support</a>
+            <a href="/beaglebay/privacy">Privacy</a>
+            <a href="/beaglebay/terms">Terms</a>
+            <a href="/beaglebay/support">Support</a>
         </nav>
     </header>
     {body}
     <footer>
-        © ProPawsTech. SnootScoot is built independently and not
+        © ProPawsTech. BeagleBay is built independently and not
         affiliated with Apple Inc., the American Kennel Club, or any
         breed registry.
     </footer>

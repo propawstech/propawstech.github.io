@@ -1,13 +1,13 @@
 # propawstech.com — static site
 
 Hosts the marketing landing page, Privacy Policy, Terms of Service, and
-Support page for SnootScoot (and eventually GoldenGlide). Served via
+Support page for BeagleBay (and eventually GoldenGrin). Served via
 **GitHub Pages** with a custom domain so the URLs match what's hardcoded
 in `BeagleSnootScoot/Utilities/Config.swift`:
 
-- `https://propawstech.com/snootscoot/privacy`
-- `https://propawstech.com/snootscoot/terms`
-- `https://propawstech.com/snootscoot/support`
+- `https://propawstech.com/beaglebay/privacy`
+- `https://propawstech.com/beaglebay/terms`
+- `https://propawstech.com/beaglebay/support`
 
 ## Layout
 
@@ -17,8 +17,8 @@ site/
   _shared.css                          # source-of-truth CSS, inlined by build.py
   build.py                             # markdown → HTML for legal pages
   index.html                           # propawstech.com root landing
-  snootscoot/
-    index.html                         # /snootscoot — app landing (hand-edited)
+  beaglebay/
+    index.html                         # /beaglebay — app landing (hand-edited)
     privacy/index.html                 # generated from Docs/PRIVACY_POLICY.md
     terms/index.html                   # generated from Docs/TERMS_OF_SERVICE.md
     support/index.html                 # generated from Docs/SUPPORT.md
@@ -57,7 +57,7 @@ Best for keeping the iOS source repo focused on iOS code.
    ```
    These are GitHub's published Pages IPs and don't change. Propagation
    takes 5–60 minutes.
-6. Visit `https://propawstech.com/snootscoot/privacy` to verify.
+6. Visit `https://propawstech.com/beaglebay/privacy` to verify.
 
 ### Option B — serve directly from this repo
 
@@ -82,7 +82,7 @@ vim Docs/PRIVACY_POLICY.md
 python3 site/build.py
 
 # 3. Commit both the markdown and the generated HTML
-git add Docs/PRIVACY_POLICY.md site/snootscoot/privacy/index.html
+git add Docs/PRIVACY_POLICY.md site/beaglebay/privacy/index.html
 git commit -m "Update privacy policy: <what changed>"
 git push
 ```
@@ -93,9 +93,9 @@ GitHub Pages picks up the change within a minute or two.
 
 - **CSS** → edit `site/_shared.css`, then `python3 site/build.py` to inline
   it into every legal page. Hand-edited landing pages
-  (`site/index.html`, `site/snootscoot/index.html`) have their own inline
+  (`site/index.html`, `site/beaglebay/index.html`) have their own inline
   styles — update those manually if you want them to match.
-- **Landing page copy** → edit `site/snootscoot/index.html` directly. It
+- **Landing page copy** → edit `site/beaglebay/index.html` directly. It
   is not regenerated.
 
 ## Build dependencies
