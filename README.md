@@ -1,13 +1,16 @@
 # propawstech.com — static site
 
-Hosts the marketing landing page, Privacy Policy, Terms of Service, and
-Support page for BeagleBay (and eventually GoldenGrin). Served via
-**GitHub Pages** with a custom domain so the URLs match what's hardcoded
-in `BeagleSnootScoot/Utilities/Config.swift`:
+Hosts the marketing landing pages and legal docs (Privacy Policy, Terms
+of Service, Support) for every app in the ProPawsTech portfolio.
+Served via **GitHub Pages** with a custom domain.
 
-- `https://propawstech.com/beaglebay/privacy`
-- `https://propawstech.com/beaglebay/terms`
-- `https://propawstech.com/beaglebay/support`
+URLs per app match what's hardcoded in
+`BeagleSnootScoot/Utilities/Config.swift` (Beagle target) and
+`BeagleSnootScoot/Breeds/<Breed>/Config*.swift` (each breed target):
+
+- `https://propawstech.com/beaglebay/privacy` (and /terms, /support)
+- `https://propawstech.com/goldengrin/privacy` (and /terms, /support)
+- … one set per app
 
 ## Layout
 
@@ -16,16 +19,27 @@ site/
   CNAME                                # propawstech.com — required by GH Pages
   _shared.css                          # source-of-truth CSS, inlined by build.py
   build.py                             # markdown → HTML for legal pages
-  index.html                           # propawstech.com root landing
+  index.html                           # propawstech.com root landing (hand-edited)
   beaglebay/
     index.html                         # /beaglebay — app landing (hand-edited)
     privacy/index.html                 # generated from Docs/PRIVACY_POLICY.md
     terms/index.html                   # generated from Docs/TERMS_OF_SERVICE.md
     support/index.html                 # generated from Docs/SUPPORT.md
+  goldengrin/
+    index.html                         # /goldengrin — app landing (hand-edited)
+    privacy/index.html                 # generated, same Docs/ source
+    terms/index.html                   # generated, same Docs/ source
+    support/index.html                 # generated, same Docs/ source
 ```
 
-The legal pages have **one source of truth**: the markdown files in `/Docs`.
-Run `python3 site/build.py` after editing them.
+The legal pages have **one source of truth**: the templated markdown
+files in `/Docs` (PRIVACY_POLICY.md, TERMS_OF_SERVICE.md, SUPPORT.md).
+They use `{{APP_NAME}}` placeholders that build.py substitutes per app
+at generation time.
+
+Add a new app by appending to the `APPS` list in `build.py` — no other
+code changes needed. Re-run `python3 site/build.py` after editing the
+markdown OR adding a new app.
 
 ## First-time deployment (GitHub Pages, custom domain)
 

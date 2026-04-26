@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GoldenGrin — the wellness app made just for golden retrievers. GPS walks, swim & ear-care reminders, joint tracking, vet PDF export. Free, no ads, no in-app purchases.">
+    <meta name="robots" content="index,follow">
+    <title>GoldenGrin — A wellness app made for golden retrievers</title>
+    <style>
+        :root {
+            --bg: #faf7f1;
+            --fg: #101828;
+            --muted: #718096;
+            --accent: #d99a2b;
+            --accent-dark: #b8751f;
+            --rule: #f1e7da;
+            --max-width: 720px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg:#181610; --fg:#ececea; --muted:#a4a4a0; --accent:#e8b44c; --rule:#2c2925; }
+        }
+        * { box-sizing: border-box; }
+        html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+        body {
+            background: var(--bg); color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6; margin: 0; padding: 32px 24px 80px;
+            display: flex; justify-content: center;
+        }
+        main { width: 100%; max-width: var(--max-width); }
+        header {
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 16px; margin-bottom: 32px;
+        }
+        header a.brand {
+            font-weight: 600; color: var(--fg); text-decoration: none; font-size: 1.05rem;
+        }
+        header nav { margin-top: 8px; font-size: 0.9rem; }
+        header nav a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+        header nav a:hover { color: var(--accent); }
+        h1 {
+            font-size: 2.4rem; line-height: 1.15; margin: 24px 0 12px;
+            letter-spacing: -0.015em;
+        }
+        .lede { color: var(--muted); font-size: 1.1rem; margin: 0 0 32px; }
+        h2 {
+            font-size: 1.3rem; margin: 48px 0 12px; letter-spacing: -0.005em;
+        }
+        p, ul { margin: 0 0 16px; }
+        ul { padding-left: 22px; }
+        li { margin-bottom: 6px; }
+        a { color: var(--accent-dark); }
+        .pill {
+            display: inline-block; background: var(--rule); color: var(--fg);
+            padding: 4px 12px; border-radius: 999px; font-size: 0.85rem;
+            margin-right: 8px; margin-bottom: 8px;
+        }
+        footer {
+            margin-top: 64px; padding-top: 16px;
+            border-top: 1px solid var(--rule);
+            color: var(--muted); font-size: 0.85rem;
+        }
+        footer a { color: var(--muted); }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <a class="brand" href="/">ProPawsTech</a>
+        <nav>
+            <a href="/goldengrin/privacy">Privacy</a>
+            <a href="/goldengrin/terms">Terms</a>
+            <a href="/goldengrin/support">Support</a>
+        </nav>
+    </header>
+
+    <h1>GoldenGrin</h1>
+    <p class="lede">A wellness app made just for golden retrievers — by people who came home to the same big smile every day.</p>
+
+    <p>
+        Goldens aren't just dogs. They need their walks to count, their ears
+        dried after every swim, their joints kept gentle, and their lumps
+        watched. GoldenGrin is designed around that reality, not retrofitted
+        from a generic pet app.
+    </p>
+
+    <h2>What it does</h2>
+    <ul>
+        <li><strong>GPS walk tracker</strong> &mdash; live route map, distance, pace, elevation, with Sniff / Exercise / Training tags so a swim or nose-work session counts the way it should.</li>
+        <li><strong>Heat &amp; humidity walk-safety advisory</strong> &mdash; humidity-aware caution thresholds plus the vet-recommended pavement five-second rule.</li>
+        <li><strong>Wellness log</strong> &mdash; weight, meals, vet visits, grooming and training notes, with trend charts and a food-safety lookup.</li>
+        <li><strong>Routine ear-check log</strong> &mdash; one-tap reminder + log, perfect for water-loving floppy-eared breeds.</li>
+        <li><strong>Seizure event log</strong> &mdash; a built-in stopwatch, date, duration, and notes for owners managing epilepsy.</li>
+        <li><strong>"Share with vet" PDF</strong> &mdash; a clean multi-page summary you can AirDrop or email to your vet before any visit.</li>
+        <li><strong>Breed-specific tips</strong> &mdash; activity, nutrition, training, health and safety, all tuned for golden retrievers.</li>
+        <li><strong>Vocal moments</strong> (optional) &mdash; counts your golden's barks during walks using on-device sound recognition.</li>
+        <li><strong>Apple Health</strong> &mdash; reads your steps and active calories; writes finished walks back to Apple Health.</li>
+    </ul>
+
+    <h2>Privacy first</h2>
+    <ul>
+        <li>No ads. No trackers. No analytics SDKs.</li>
+        <li>No in-app purchases. No subscriptions.</li>
+        <li>Audio for vocalisation detection is processed on-device and never recorded or uploaded.</li>
+        <li>Walks, weight, meals, ear checks, seizure events, photos &mdash; all stored on your device only. The vet PDF is the only way any of it leaves the phone, and you choose when.</li>
+        <li>Export your data or delete your account in two taps.</li>
+    </ul>
+    <p>
+        Read the full <a href="/goldengrin/privacy">Privacy Policy</a> and
+        <a href="/goldengrin/terms">Terms of Service</a>.
+    </p>
+
+    <h2>Get in touch</h2>
+    <p>
+        Bug reports, feature requests, or just want to share a golden photo?
+        <a href="mailto:propawstech@proton.me">propawstech@proton.me</a>
+    </p>
+
+    <footer>
+        © ProPawsTech. GoldenGrin is built independently and not affiliated
+        with Apple Inc., the American Kennel Club, or any breed registry.
+    </footer>
+</main>
+</body>
+</html>
