@@ -56,12 +56,24 @@ BUNDLED_LEGAL = ROOT / "BeagleSnootScoot" / "Resources" / "Legal"
 CSS = (SITE / "_shared.css").read_text(encoding="utf-8")
 
 # Per-app config. `slug` is the URL path segment AND the local site/
-# directory name. `name` is the user-visible product name substituted
-# into every {{APP_NAME}} placeholder in the markdown sources. Add a
-# new app by appending here — no other code changes needed.
+# directory name. `name` is the user-visible product name; the
+# breed_* fields fill the breed-specific placeholders. Add a new
+# app by appending here — no other code changes needed.
 APPS = [
-    {"slug": "beaglebay",  "name": "BeagleBay"},
-    {"slug": "goldengrin", "name": "GoldenGrin"},
+    {
+        "slug":          "beaglebay",
+        "name":          "BeagleBay",
+        "breed":         "Beagle",
+        "breed_lower":   "beagle",
+        "breed_plural":  "beagles",
+    },
+    {
+        "slug":          "goldengrin",
+        "name":          "GoldenGrin",
+        "breed":         "Golden Retriever",
+        "breed_lower":   "golden retriever",
+        "breed_plural":  "golden retrievers",
+    },
 ]
 
 # (source markdown filename, output sub-directory under site/<slug>/,
@@ -112,8 +124,16 @@ TEMPLATE = """<!DOCTYPE html>
 
 
 def substitute(md_text: str, app: dict) -> str:
-    """Replace `{{APP_NAME}}` (and any future placeholders) per app."""
-    return md_text.replace("{{APP_NAME}}", app["name"])
+    """Replace per-app placeholders. Keep this list in lockstep with
+    `LegalDocSheet.substitutePlaceholders` in the iOS code so the in-
+    app legal sheet and the website render identical wording."""
+    s = md_text
+    s = s.replace("{{APP_NAME}}",             app["name"])
+    s = s.replace("{{APP_SLUG}}",             app["slug"])
+    s = s.replace("{{BREED_NAME}}",           app["breed"])
+    s = s.replace("{{BREED_NAME_LOWERCASED}}", app["breed_lower"])
+    s = s.replace("{{BREED_NAME_PLURAL}}",    app["breed_plural"])
+    return s
 
 
 def build_one_page(app: dict, source_md: str, sub_dir: str, title_template: str) -> Path:
@@ -136,22 +156,19 @@ def build_one_page(app: dict, source_md: str, sub_dir: str, title_template: str)
     return out
 
 
-def write_bundled_for_first_app() -> list[Path]:
-    """Mirror substituted markdown into the iOS bundle's Resources/Legal/.
-    Currently only the first app in APPS gets bundled — both targets
-    share this directory at the moment, so this matches whatever app
-    is shipping closest. Split into per-target Legal dirs when the
-    second app is close to ship."""
-    if not APPS:
-        return []
-    first = APPS[0]
+def write_bundled_raw() -> list[Path]:
+    """Mirror the RAW (un-substituted) markdown into the iOS bundle's
+    Resources/Legal/. The shared `Resources/Legal/` directory ships to
+    every breed target; the iOS app's `LegalDocSheet.substitutePlaceholders`
+    swaps in per-breed values from `CurrentBreed` at display time. This
+    keeps a single source-of-truth markdown in `/Docs/` instead of
+    forcing per-target Legal directories + xcodeproj surgery."""
     BUNDLED_LEGAL.mkdir(parents=True, exist_ok=True)
     written = []
     for source_md, _, _ in PAGES:
         src = DOCS / source_md
-        md_text = substitute(src.read_text(encoding="utf-8"), first)
         bundled = BUNDLED_LEGAL / source_md
-        bundled.write_text(md_text, encoding="utf-8")
+        bundled.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
         written.append(bundled)
     return written
 
@@ -170,8 +187,8 @@ def main() -> int:
             print(f"    ✓ {src:24}  →  {html_path.relative_to(ROOT)}")
 
     print()
-    print(f"  [bundled legal — first app: {APPS[0]['name']}]")
-    for path in write_bundled_for_first_app():
+    print(f"  [bundled legal — raw template, runtime-substituted by iOS]")
+    for path in write_bundled_raw():
         print(f"    ✓ {path.relative_to(ROOT)}")
 
     print()
